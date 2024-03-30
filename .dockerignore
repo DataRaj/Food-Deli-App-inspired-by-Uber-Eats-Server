@@ -1,0 +1,25 @@
+# Ignore files and directories commonly excluded in Docker builds
+
+# Ignore development files
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Ignore build artifacts
+build
+dist
+
+# Ignore version control files
+.git
+.gitignore
+
+# Ignore editor and IDE files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
