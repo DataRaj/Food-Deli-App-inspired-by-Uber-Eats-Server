@@ -64,8 +64,8 @@ import { UploadsModule } from './uploads/uploads.module';
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      ...(process.env.DATABASE_URL
-        ? { url: process.env.DATABASE_URL }
+      ...(process.env.HEROKU_POSTGRESQL_BLUE_URL
+        ? { url: process.env.HEROKU_POSTGRESQL_BLUE_URL }
         : {
             host: process.env.DB_HOST,
             port: +process.env.DB_PORT,
