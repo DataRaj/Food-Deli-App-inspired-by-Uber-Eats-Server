@@ -40,6 +40,12 @@ import { UploadsModule } from './uploads/uploads.module';
         JWT_SECRET: Joi.string().required(),
         MAIL_API_KEY: Joi.string().required(),
         MAIL_DOMAIN_NAME: Joi.string().required(),
+        dialect: "postgres",
+        dialectOption:{
+          SSL:{
+          required: true,
+          rejectUnauthorized: false,
+        }},
       }),
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
