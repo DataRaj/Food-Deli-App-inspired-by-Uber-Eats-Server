@@ -1,12 +1,12 @@
 {
   "name": "uber-eats-backend",
   "version": "0.0.1",
-  "description": "foo-deli-app-backedn",
+  "description": "foo-deli-app-backend",
   "author": "Dattaraj Dhadas",
   "url": "\"https://github.com/DataRaj/Food-Deli-App-inspired-by-Uber-Eats-Server\"",
   "engines": {
-    "npm": ">=8.0.0 <10.5.0",
-    "node": ">=18.0.0 <=20.8.0"
+    "npm": ">=8.0.0 <10.6.0",
+    "node": ">=18.0.0 <20.13.2"
   },
   "license": "UNLICENSED",
   "scripts": {

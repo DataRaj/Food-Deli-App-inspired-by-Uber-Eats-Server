@@ -17,7 +17,7 @@ export class UploadsController {
 		const BUCKET_NAME = this.configService.get('BUCKET_NAME');
 
 		const s3 = new S3Client({
-			region: 'your-region-here',
+			// region: 'your-region-here',
 			credentials: {
 				accessKeyId: this.configService.get('AWS_KEY'),
 				secretAccessKey: this.configService.get('AWS_SECRET'),
@@ -49,5 +49,4 @@ export class UploadsController {
 		return { url: `${this.configService.get('APP_URL')}/${file.filename}` };
 	}
 }
-
 
