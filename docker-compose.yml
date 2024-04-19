@@ -1,13 +1,15 @@
-services:
-  api:
-    build:
-      dockerfile: Dockerfile
-      context: .
-      target: development    
-    volumes:
-      - .:/usr/src/app
-    env_file:
-    - .env
-    comm]]]]and: npm run start:dev
-    ports:
-      - 3000:3000   
+    version: '3.8'
+    services:
+      api:
+        image: food-deli-app  # Use the image you've built
+        # build:  # You can comment this out if you're not planning to rebuild
+        #   dockerfile: Dockerfile
+        #   context: .
+        #   target: development
+        volumes:
+          - .:/usr/src/app
+        env_file:
+          - .env
+        command: npm run start:dev
+        ports:
+          - "3000:3000"

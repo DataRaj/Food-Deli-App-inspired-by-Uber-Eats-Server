@@ -9,7 +9,7 @@ RUN npm ci
 
 COPY --chown=node:node . .
 
-USER node
+USER root
 
 # Build stage
 FROM development AS build
@@ -28,6 +28,6 @@ WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
 
-USER node
+USER root
 
 CMD [ "node", "dist/main.js" ]
