@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import  pg ,{ Pool } from  'pg';
 // import { join } from 'path';
 import { RestaurantModule } from './restaurant/restaurant.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -68,10 +69,11 @@ import { UploadsModule } from './uploads/uploads.module';
       },
       context: ({ req }) => req && { token: req.headers.authorization },
     }),
+    
     TypeOrmModule.forRoot({
       type: 'postgres',
-      ...(process.env.HEROKU_POSTGRESQL_BLUE_URL
-        ? { url: process.env.HEROKU_POSTGRESQL_BLUE_URL }
+      ...(process.env.DATABASE_URL
+        ? { url: `${process.env.DATABASE_URL}?sslmode=require` }
         : {
             host: process.env.DB_HOST,
             port: +process.env.DB_PORT,
@@ -82,6 +84,7 @@ import { UploadsModule } from './uploads/uploads.module';
       ...(process.env.NODE_ENV === 'productions'
         ? { ssl: { rejectUnauthorized: false } }
         : null),
+        
       schema: process.env.DB_SCHEMA,
       logging: false,
       synchronize: process.env.NODE_ENV !== 'production',
