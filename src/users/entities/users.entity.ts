@@ -18,6 +18,8 @@ import { HashPasswordService } from '../../services/hashPassword';
 import { Restaurant } from 'src/restaurant/entities/restaurant.entity';
 import { Order } from 'src/orders/entities/orders.entity';
 // import { Payment } from '../../payments/entities/payments.entity';
+
+
 export enum UserRole {
   Owner = 'Owner',
   Client = 'Client',
@@ -47,7 +49,7 @@ registerEnumType(UserRole, { name: 'UserRole' });
 @InputType('UserInput', { isAbstract: true })
 @ObjectType()
 @Entity()
-export class User extends CoreEntity {
+export class  User extends CoreEntity {
   @Column({ unique: true })
   @Field(() => String)
   @IsEmail()
